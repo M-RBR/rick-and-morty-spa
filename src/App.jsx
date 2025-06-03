@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CharacterCard from "./CharacterCard";
 import "./App.css";
 
 function App() {
@@ -18,10 +19,7 @@ function App() {
       <h1>Rick and Morty Characters</h1>
       <div className="card-container">
         {characters.map((char) => (
-          <div key={char.id} className="card">
-            <img src={char.image} alt={char.name} />
-            <h3>{char.name}</h3>
-          </div>
+          <CharacterCard key={char.id} image={char.image} name={char.name} />
         ))}
       </div>
     </div>
