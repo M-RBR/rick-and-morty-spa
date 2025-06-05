@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./CharacterCard.css";
+// import "./CharacterCard.css"; //
 import Modal from "./Modal";
 
 function CharacterCard({ image, name, status, species, gender }) {

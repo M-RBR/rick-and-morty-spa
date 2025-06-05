@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CharacterCard from "./CharacterCard";
+import CharacterCard from "./Components/CharacterCard";
 import "./App.css";
 
 function App() {
