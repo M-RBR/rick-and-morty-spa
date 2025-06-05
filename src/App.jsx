@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CharacterCard from "./Components/CharacterCard";
-import "./App.css";
+// import "./App.css"; // remove?
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -30,10 +30,12 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Rick and Morty Characters</h1>
+    <div className="min-h-screen bg-gray-200 text-black p-4">
+      <h1 className="text-5xl font-extrabold text-center my-10 text-emerald-500 underline decoration-wavy decoration-2 tracking-wide">
+        Rick and Morty Characters
+      </h1>
 
-      <form>
+      <form className="mb-8 flex justify-center">
         <div>
           <input
             type="search"
@@ -41,11 +43,12 @@ function App() {
             placeholder="Search characters..."
             value={searchTerm}
             onChange={handleSearchChange}
+            className="w-full max-w-lg p-2 text-xl rounded-lg border-3 border-green-500 bg-gray-800 text-white placeholder-white focus:outline-none focus:ring-1 focus:ring-green-500"
           />
         </div>
       </form>
 
-      <div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4 justify-items-center">
         {filteredCharacters.length > 0 ? (
           filteredCharacters.map((char) => (
             <CharacterCard
@@ -58,7 +61,9 @@ function App() {
             />
           ))
         ) : (
-          <p>No characters found.</p>
+          <p className="text-center text-xl text-red-400 col-span-full">
+            No characters found.
+          </p>
         )}
       </div>
     </div>
