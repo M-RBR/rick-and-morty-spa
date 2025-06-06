@@ -15,21 +15,24 @@ function CharacterCard({ image, name, status, species, gender }) {
             style={{ width: "300px", height: "300px" }}
           />
         </div>
+
         <div className="flip-card-back">
           <h3>{name}</h3>
           <button onClick={() => setOpenModal(true)}>More Info</button>
+
+          {openModal && (
+            <div className="modalOverlay">
+              <Modal
+                name={name}
+                status={status}
+                species={species}
+                gender={gender}
+                closeModal={() => setOpenModal(false)}
+              />
+            </div>
+          )}
         </div>
       </div>
-
-      {openModal && (
-        <Modal
-          name={name}
-          status={status}
-          species={species}
-          gender={gender}
-          closeModal={() => setOpenModal(false)}
-        />
-      )}
     </div>
   );
 }

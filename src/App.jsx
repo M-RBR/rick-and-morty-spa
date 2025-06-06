@@ -17,13 +17,15 @@ function App() {
       .catch((error) => console.error("Failed to fetch characters:", error));
   }, []);
 
+  // filtering logic
+
   useEffect(() => {
     const lowercasedSearchTerm = searchTerm.toLowerCase();
     const results = characters.filter((char) =>
       char.name.toLowerCase().includes(lowercasedSearchTerm)
     );
     setFilteredCharacters(results);
-  }, [searchTerm, characters]);
+  }, [searchTerm, characters]); // dependency array
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -43,7 +45,7 @@ function App() {
             placeholder="Search characters..."
             value={searchTerm}
             onChange={handleSearchChange}
-            className="w-full max-w-lg p-2 text-xl rounded-lg border-3 border-green-500 bg-gray-800 text-white placeholder-white focus:outline-none focus:ring-1 focus:ring-green-500"
+            className="w-full max-w-lg p-2 text-xl rounded-lg border-3 border-yellow-300 bg-gray-800 text-white placeholder-white focus:outline-none focus:ring-3 focus:ring-green-500"
           />
         </div>
       </form>
